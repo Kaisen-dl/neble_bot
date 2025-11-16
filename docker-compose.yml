@@ -4,6 +4,8 @@ services:
   bot:
     build: .
     restart: unless-stopped
+    depends_on:
+      - postgres
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - GUILD_ID=${GUILD_ID}
@@ -15,5 +17,13 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-      - ROLE_DURATION_HOURS=90
-      - RENEWAL_DURATION_HOURS=10
+
+  postgres:
+    build:
+      context: ./database
+      dockerfile: Dockerfile  # Dockerfile в папке database
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_PASSWORD}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
