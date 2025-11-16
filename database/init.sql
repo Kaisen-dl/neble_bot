@@ -12,5 +12,7 @@ CREATE TABLE IF NOT EXISTS user_roles (
     message_id VARCHAR(20) DEFAULT ''
 );
 
+SELECT rolname, rolpassword IS NOT NULL as has_password FROM pg_catalog.pg_roles;
+
 CREATE INDEX IF NOT EXISTS idx_user_roles_expires_at ON user_roles(expires_at);
 CREATE INDEX IF NOT EXISTS idx_user_roles_user_id ON user_roles(user_id);
