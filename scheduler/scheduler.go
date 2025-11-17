@@ -57,7 +57,7 @@ func sendRenewalMessage(s *discordgo.Session, db *database.DB, cfg *config.Confi
 		},
 	}
 
-	message := fmt.Sprintf("<@%s>, ты всё ещё **%s**? Ответь в течение 10 минут.", role.UserID, role.RoleName)
+	message := fmt.Sprintf("<@%s>, ты всё ещё **%s**?", role.UserID, role.RoleName)
 
 	msg, err := s.ChannelMessageSendComplex(cfg.NotificationChannelID, &discordgo.MessageSend{
 		Content:    message,

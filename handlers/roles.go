@@ -14,12 +14,12 @@ func CreateRoleSelectionMessage(s *discordgo.Session, cfg *config.Config) {
 		discordgo.ActionsRow{
 			Components: []discordgo.MessageComponent{
 				discordgo.Button{
-					Label:    "Пидарас",
+					Label:    "Сенди-Шорс",
 					Style:    discordgo.PrimaryButton,
 					CustomID: "select_role_1",
 				},
 				discordgo.Button{
-					Label:    "Хуесос",
+					Label:    "Палето-Бэй",
 					Style:    discordgo.SuccessButton,
 					CustomID: "select_role_2",
 				},

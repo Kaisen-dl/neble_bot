@@ -79,8 +79,8 @@ func handleRoleSelection(s *discordgo.Session, i *discordgo.InteractionCreate, d
 		ID   string
 		Name string
 	}{
-		"select_role_1": {ID: "1437489779045302322", Name: "Пидарас"},
-		"select_role_2": {ID: "1437489998478970960", Name: "Хуесос"},
+		"select_role_1": {ID: "1439750973861007442", Name: "Сенди-Шорс"},
+		"select_role_2": {ID: "1439751278925316116", Name: "ХПалето-Бэй"},
 	}
 
 	role, exists := roles[customID]
@@ -122,8 +122,7 @@ func handleRoleSelection(s *discordgo.Session, i *discordgo.InteractionCreate, d
 
 	// sendChangeConfirmation(s, i, db, cfg, role.Name)
 
-	respond(s, i, fmt.Sprintf("Роль **%s** успешно выдана! Действует до: %s",
-		role.Name, expiresAt.Format("02.01.2006 15:04")))
+	respond(s, i, fmt.Sprintf("Роль **%s** успешно выдана!", role.Name))
 }
 
 // func sendChangeConfirmation(s *discordgo.Session, i *discordgo.InteractionCreate, db *database.DB, cfg *config.Config, roleName string) {
